@@ -1,0 +1,88 @@
+===============================================
+КОМАНДЫ ДЛЯ ПОЛНОГО ОБНОВЛЕНИЯ ПРОЕКТА НА СЕРВЕРЕ
+===============================================
+
+1. ОБНОВЛЕНИЕ КОДА ИЗ GIT
+-----------------------------------------------
+git fetch origin
+git pull origin main
+
+
+2. УСТАНОВКА/ОБНОВЛЕНИЕ ЗАВИСИМОСТЕЙ
+-----------------------------------------------
+# Для продакшена (без dev зависимостей):
+composer install --no-dev --optimize-autoloader --no-interaction
+
+# Для разработки:
+composer install --no-interaction
+
+
+3. ОЧИСТКА КЕШЕЙ LARAVEL
+-----------------------------------------------
+php artisan config:clear
+php artisan cache:clear
+php artisan route:clear
+php artisan view:clear
+
+
+4. ЗАПУСК МИГРАЦИЙ БАЗЫ ДАННЫХ
+-----------------------------------------------
+php artisan migrate --force
+
+
+5. СОЗДАНИЕ ОПТИМИЗИРОВАННЫХ КЕШЕЙ (для продакшена)
+-----------------------------------------------
+php artisan config:cache
+php artisan route:cache
+php artisan view:cache
+php artisan optimize
+
+
+6. СОЗДАНИЕ СИМВОЛИЧЕСКОЙ ССЫЛКИ ДЛЯ STORAGE (если нужно)
+-----------------------------------------------
+php artisan storage:link
+
+
+===============================================
+ВСЕ КОМАНДЫ В ОДНУ СТРОКУ (для копирования)
+===============================================
+
+# Полное обновление (продакшен):
+git fetch origin && git pull origin main && composer install --no-dev --optimize-autoloader --no-interaction && php artisan config:clear && php artisan cache:clear && php artisan route:clear && php artisan view:clear && php artisan migrate --force && php artisan config:cache && php artisan route:cache && php artisan view:cache && php artisan optimize
+
+# Полное обновление (разработка):
+git fetch origin && git pull origin main && composer install --no-interaction && php artisan config:clear && php artisan cache:clear && php artisan route:clear && php artisan view:clear && php artisan migrate --force
+
+
+===============================================
+ДОПОЛНИТЕЛЬНЫЕ КОМАНДЫ (если нужно)
+===============================================
+
+# Проверка статуса git:
+git status
+
+# Просмотр последних коммитов:
+git log --oneline -10
+
+# Откат к конкретному коммиту (если нужно):
+# git reset --hard COMMIT_HASH
+
+# Обновление composer до последней версии:
+composer self-update
+
+# Очистка кеша composer:
+composer clear-cache
+
+# Проверка версии PHP:
+php -v
+
+# Проверка версии Composer:
+composer --version
+
+# Проверка версии Laravel:
+php artisan --version
+
+
+
+
+

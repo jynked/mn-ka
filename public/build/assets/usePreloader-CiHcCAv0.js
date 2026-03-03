@@ -1,0 +1,1 @@
+function i(){return{hidePreloader:(e=300)=>{setTimeout(()=>{window.hidePreloader&&typeof window.hidePreloader=="function"&&window.hidePreloader()},e)},showPreloader:()=>{const e=document.getElementById("preloader");e&&e.classList.remove("hidden")},isPreloaderVisible:()=>{const e=document.getElementById("preloader");return e&&!e.classList.contains("hidden")}}}export{i as u};
